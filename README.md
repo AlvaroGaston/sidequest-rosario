@@ -14,8 +14,8 @@ TP 2 – Trabajo final Full Stack.
 
 | Servicio | URL |
 | --- | --- |
-| Frontend (Static Site) | https://sidequest.onrender.com _(reemplazar por la URL real)_ |
-| Backend (Web Service) | https://sidequest-api.onrender.com _(reemplazar por la URL real)_ |
+| Frontend (Static Site) | https://sidequest-rosario-web.onrender.com |
+| Backend (Web Service) | https://sidequest-rosario.onrender.com |
 
 > El plan free de Render duerme el backend después de unos minutos sin uso: la primera carga puede tardar ~1 minuto.
 
@@ -149,10 +149,10 @@ Si no completás las credenciales de GitHub/Google, la app funciona igual con em
 **OAuth Apps de GitHub** (Settings → Developer settings → OAuth Apps), una por entorno:
 
 - Local: Homepage `http://localhost:5173`, callback `http://localhost:5173/api/auth/callback/github`
-- Producción: Homepage `https://sidequest.onrender.com`, callback `https://sidequest.onrender.com/api/auth/callback/github`
+- Producción: Homepage `https://sidequest-rosario-web.onrender.com`, callback `https://sidequest-rosario-web.onrender.com/api/auth/callback/github`
 
 **Google** (Google Cloud Console → Credenciales → ID de cliente OAuth, tipo "Aplicación web"):
-URI de redirección `http://localhost:5173/api/auth/callback/google` y `https://sidequest.onrender.com/api/auth/callback/google`.
+URI de redirección `http://localhost:5173/api/auth/callback/google` y `https://sidequest-rosario-web.onrender.com/api/auth/callback/google`.
 
 ## 🚀 Deploy en Render
 
@@ -161,17 +161,17 @@ Así la cookie de sesión es del mismo dominio y no hay problemas de CORS.
 
 | Servicio | Tipo | Root dir | Build command | Start / Publish |
 | --- | --- | --- | --- | --- |
-| sidequest-api | Web Service | `backend` | `npm install && npm run build` | `npm start` |
-| sidequest | Static Site | `frontend` | `npm install && npm run build` | Publish dir: `dist` |
+| sidequest-rosario | Web Service | `backend` | `npm install && npm run build` | `npm start` |
+| sidequest-rosario-web | Static Site | `frontend` | `npm install && npm run build` | Publish dir: `dist` |
 
 **Rewrites del Static Site** (Redirects/Rewrites, en este orden):
 
 | Source | Destination | Action |
 | --- | --- | --- |
-| `/api/*` | `https://sidequest-api.onrender.com/api/*` | Rewrite |
+| `/api/*` | `https://sidequest-rosario.onrender.com/api/*` | Rewrite |
 | `/*` | `/index.html` | Rewrite |
 
-**Variables del Web Service:** las mismas de `.env.example`, con `BETTER_AUTH_URL` y `FRONTEND_URL` = `https://sidequest.onrender.com`.
+**Variables del Web Service:** las mismas de `.env.example`, con `BETTER_AUTH_URL` y `FRONTEND_URL` = `https://sidequest-rosario-web.onrender.com`.
 En MongoDB Atlas → Network Access, permitir `0.0.0.0/0` (o las IPs de Render).
 Después del primer deploy, correr el seed una vez desde tu máquina apuntando a la base de Atlas (`npm run seed` con el `MONGODB_URI` de producción en tu `.env`).
 

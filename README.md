@@ -106,6 +106,8 @@ Los errores de validación devuelven **400** con detalle por campo:
 - **Paginación, filtros y búsqueda** en `/api/quests` y en la pantalla `/quests`.
 - **Cada usuario ve/borra solo sus registros:** recurso `/api/completions` (misiones completadas + XP total + nivel en `/perfil`).
 - **Login con Google** además de GitHub (`socialProviders.google`).
+  La app de Google está en **modo prueba**: solo pueden entrar con Google las cuentas agregadas como usuarios de prueba.
+  Si necesitás acceso con Google, pedilo; si no, usá los usuarios de prueba con email y contraseña o el login con GitHub.
 - **Cambio de roles** en `/admin/usuarios` con `authClient.admin.setRole`.
 
 ## 💻 Correr en local

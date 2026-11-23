@@ -18,7 +18,7 @@ export function safeRedirect(value: string | null) {
 // Errores que Better Auth agrega como ?error=... cuando falla el login con GitHub/Google.
 const OAUTH_ERRORS: Record<string, string> = {
   state_mismatch: "La sesión de login venció o se abrió en otra pestaña. Probá de nuevo.",
-  invalid_code: "GitHub/Google devolvió un código vencido. Probá de nuevo (un solo clic).",
+  invalid_code: "El proveedor rechazó el inicio de sesión. Probá de nuevo; si se repite, revisá el Client ID/Secret del backend.",
   account_not_linked: "Ya existe una cuenta con ese email. Entrá con email y contraseña.",
   email_not_found: "Tu cuenta no tiene un email visible. Revisá la configuración de email en GitHub.",
   unable_to_create_user: "No se pudo crear tu usuario. Probá de nuevo.",

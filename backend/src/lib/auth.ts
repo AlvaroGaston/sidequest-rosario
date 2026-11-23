@@ -39,6 +39,14 @@ export const auth = betterAuth({
     minPasswordLength: 8,
   },
   socialProviders,
+  account: {
+    // Si alguien ya tiene cuenta con el mismo email (por ejemplo, registrada con contraseña),
+    // al entrar con GitHub/Google se vincula a esa cuenta en vez de fallar con "account_not_linked".
+    accountLinking: {
+      enabled: true,
+      trustedProviders: ["github", "google"],
+    },
+  },
   plugins: [
     // Agrega el campo `role` (default "user") y los endpoints de admin (setRole, listUsers...).
     admin({ defaultRole: "user", adminRoles: ["admin"] }),
